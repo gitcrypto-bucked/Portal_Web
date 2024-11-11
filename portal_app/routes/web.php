@@ -13,8 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [\App\Http\Controllers\LoginController::class, 'index'])->middleware('guest');
-Route::get('/login',[\App\Http\Controllers\LoginController::class,'index'])->middleware('guest');
+Route::get('/', [\App\Http\Controllers\LoginController::class, 'index'])->middleware('guest','PreventHistoyBack');
+Route::get('/login',[\App\Http\Controllers\LoginController::class,'index'])->middleware('guest','PreventHistoyBack');
 Route::get('/home', [\App\Http\Controllers\LoginController::class,'index'])->middleware('guest')->name('home');
 Route::post('/login', [\App\Http\Controllers\LoginController::class, 'userLogin'])->middleware('guest')->name('login');
 Route::get('/forgot-password', [\App\Http\Controllers\LoginController::class, 'forgotPassword'])->middleware('guest')->name('forgot-password');
@@ -24,15 +24,13 @@ Route::get('/password_register/{token}',[\App\Http\Controllers\UserController::c
 Route::post('/update-password', [\App\Http\Controllers\UserController::class, 'updateUserPassword'])->middleware('guest')->name('update-password');
 //link de acesso expirado ou já utilizado
 Route::get('/expired-link',function (){return view('link.expired-link');})->middleware('guest')->name('expired-link');
-
+/**rota para logout de usuario */
+Route::get('logout', [\App\Http\Controllers\LoginController::class, 'userLogout'])->middleware('auth','PreventHistoyBack')->name('logout');
 
 Route::group(['middleware' => 'auth'], function ()
 {
     /** Após login redireciona o usuario para a pagina que mostra as noticias */
     Route::get('/news-list',[\App\Http\Controllers\NewsController::class, 'index'])->middleware(['auth'])->name('news-list');
-
-    /**rota para logout de usuario */
-    Route::get('logout', [\App\Http\Controllers\LoginController::class, 'userLogout'])->name('logout');
 
     /*Rota para criar usuarios  acesso somente como admin*/
     Route::get('/register-user',[\App\Http\Controllers\UserController::class, 'registerIndex'])->middleware(['auth'])->name('register-user');

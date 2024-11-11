@@ -6,6 +6,9 @@
     <meta name="description" content="">
     <meta name="author" content="Ti team &amp; Low Cost contributors">
     <meta name="generator" content="Pedro Henrique & Washington">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
     <title>Portal LowCost</title>
     <!--  <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'>-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
@@ -49,7 +52,7 @@
 
     <!--navbar -->
     <!--content-->
-    <div class="container-fluid px-4 mt-4 ">
+    <div class="container-fluid px-4 mt-4 mobile">
         <h2 class="content-title pageName">Cadastro de Usuario</h2>
         <p class="pageText">Crie cadastro e usuarios com acesso ao portal.</p>
         <div class="row gx-2 gy-3 mt-3 ">

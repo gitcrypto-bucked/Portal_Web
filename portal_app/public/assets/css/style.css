@@ -254,6 +254,12 @@ a:focus {
 @media (min-width: 768px) and (max-width: 991px) {
 /** tablet , rotate mobile **/
 
+  .mobile
+  {
+      display: inline-table !important;
+      z-index: -1 !important;
+  }
+
   .navbar-brand
   {
     display: block;
@@ -313,6 +319,11 @@ a:focus {
 
 @media (max-width: 767px) {
 /** MOBILE  SMARTPHONE **/
+
+    .mobile
+    {
+        display: inline-table !important
+    }
 
   .userDesktop
   {

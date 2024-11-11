@@ -50,11 +50,11 @@
 
     <!--navbar -->
     <!--content-->
-    <div class="container-fluid px-4 mt-4 ">
+    <div class="container-fluid px-4 mt-4 mobile">
         <h2 class="content-title pageName">Cadastrar noticias</h2>
         <p class="pageText"></p>
         <div class="row mt-4 gx-3 ">
-            <div class="col-6 gx-3 px-2">
+            <div class="col-md-4 gx-3 px-2">
                 <form id="registerForm" method="POST" enctype="multipart/form-data" autocomplete="off" action="{{route('add-news')}}" class="form-floating">
                     @if(Session::has('error'))
                         <div class="alert alert-success bg-danger text-white" id="error">
@@ -90,25 +90,25 @@
                         </div>
                 </form>
             </div>
-            <div class="col-5 px-2 mx-2">
+            <div class="col-md-4 px-2 mx-2">
                 <small>Exibição como ficará</small>
-                <ul class="list-unstyled">
-                    <li>
-                        <a class="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-lg-center py-3 link-body-emphasis text-decoration-none border-0" href="#">
-                            <div class="col-2">
-                                <img src="{{asset('/thumb/news_1.jpg')}}"
-                                     class="thumb img-fluid shadow-1-strong rounded" alt="" id="image" />
+                <div class="registration-right" style="padding-top: 0px !important;">
+
+                    <div class="event-list">
+                            <div class="card flex-row">
+                                <img class="card-img-left img-fluid rounded" src="{{asset('/thumb/news_1.jpg')}}" alt="" id="image">
+                                <div class="card-body">
+                                    {{--                            <h4 class=""><small class="newsDate">AUG 01 2021</small> <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed</p></h4>--}}
+                                    <p class="mb-3 card-title border border-light" >
+                                        <small class="newsDate">{{Date('d/m/y')}}&nbsp;</small><strong class="newsHeader text-break" id="newsHeader">Locação de equipamento...</strong>
+                                    <p class="lh-0 newsText text-break" id="resumo">Em dúvida se a locação de equip..</p>
+                                    </p>
+                                    <p class=" link mt-1"  id="link" >...Continuar Lendo...</p>
+                                </div>
                             </div>
-                            <div class="col-12">
-                                <p class="mb-3">
-                                    <small class="newsDate">{{Date('d/m/y')}} &nbsp;</small><strong class="newsHeader" style="font-size: 14px !important;" id="newsHeader">Locação de equipamento...</strong>
-                                    <p class="lh-0 newsText" id="resumo">Em dúvida se a locação de equip...</p>
-                                </p>
-                                <p class=" link mt-1"  id="link" >...Continuar Lendo...</p>
-                            </div>
-                        </a>
-                    </li>
-                </ul>
+                    </div>
+                </div>
+
             </div>
 
         </div>

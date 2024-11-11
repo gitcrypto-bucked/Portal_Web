@@ -16,6 +16,17 @@
     <link rel="stylesheet" href="{{asset('assets/css/dropdown.css')}}">
     <link rel="stylesheet" href="{{asset('assets/css/news.css')}}">
     <link rel="stylesheet" href="{{asset('assets/css/pagination.css')}}">
+    <meta http-equiv="Cache-control" content="max-age=10" />
+    <meta http-equiv="Expires" content="Sat, 1 Apr 2022 05:00:00 GMT" />
+    <?php
+    header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
+    header("Cache-Control: post-check=0, pre-check=0", false);
+    header("Pragma: no-cache");
+    header('Content-Type: text/html');
+     ?>
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
 
 </head>
 <body>

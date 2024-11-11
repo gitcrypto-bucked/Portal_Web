@@ -3,28 +3,39 @@
 namespace App\Http\Controllers;
 use App\Http\Controllers\MailController;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Session;
+
 class LoginController extends Controller
 {
+
     public function index()
     {
         return view('auth.login');
     }
-
     public function forgotPassword()
     {
         return view('auth.forgot-password');
     }
+
     public function userLogin(Request $request): \Illuminate\Http\RedirectResponse
     {
+        $remember= false;
         $credentials = [
             'email' => $request->typeEmailX,
             'password' => $request->typePasswordX,
             'empresa' => strtolower($request->typeEmpresaX),
         ];
-        if (Auth::attempt($credentials))
+        if($request->flexCheckDefault=='0')
+        {
+            $remember= true;
+        }
+        //$isActive = $request->input('flexCheckDefault', 1);
+        if (Auth::attempt($credentials,$remember))
         {
             if(Auth::user()->active!=1)
             {
@@ -35,17 +46,16 @@ class LoginController extends Controller
         return redirect('/login')->with('error', 'Usuário/Senha inválidos.');
     }
 
-    public function userLogout(Request $request): \Illuminate\Http\RedirectResponse
+    public function userLogout(Request $request)
     {
+        Session::defaultRouteBlockLockSeconds(1);
+        Session::invalidate();
+        Session::flush();
+        Auth::logout();
         Auth::guard('web')->logout();
-
         $request->session()->invalidate();
-
-        $request->session()->regenerateToken();
-
         $request->session()->flush();
-
-        return redirect('/login');
+        return Redirect::to('/login'); //redirect back to login
     }
 
     public function recoverPassword(Request $request)

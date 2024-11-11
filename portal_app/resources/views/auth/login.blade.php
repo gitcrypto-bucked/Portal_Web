@@ -6,6 +6,10 @@
     <meta name="description" content="">
     <meta name="author" content="Ti team &amp; Low Cost contributors">
     <meta name="generator" content="Pedro Henrique & Washington">
+    <meta http-equiv='cache-control' content='no-cache'>
+    <meta http-equiv='expires' content='0'>
+    <meta http-equiv='pragma' content='no-cache'>
+
     <title>Portal LowCost Login</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
           integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
@@ -14,14 +18,13 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
 
-
 </head>
 <body>
 <section class="gradient-custom">
   <div class="container py-2 h-100">
     <div class="row d-flex justify-content-center align-items-center h-100">
 <!--      col-12 col-md-8 col-lg-6-->
-      <div class="col-8 col-md-6 col-lg-4 col-xl-4 ">
+      <div class="col-md-7 col-lg-4 col-xl-4 ">
         <div class="card bg-dark-alt text-white " style="border-radius: 1rem;">
           <div class="card-body p-5 text-center">
 
@@ -63,7 +66,7 @@
                     </div>
                     <label class="form-label mt-0 lh-1" for="typePasswordX"  style="display: none">Password</label>
                     <div class="form-check ml-auto text-left pt-2" style="text-align: left !important;">
-                      <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+                      <input class="form-check-input" type="checkbox" value="0" id="flexCheckDefault" name="flexCheckDefault"/>
                       <label class="form-check-label text-left" for="flexCheckDefault">Lembrar-me</label>
                     </div>
                   </div>
@@ -96,6 +99,7 @@
         crossorigin="anonymous">
 
 </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-browser/0.1.0/jquery.browser.min.js" integrity="sha512-7IUk8ZcM82NUtcQv8gBFQTbz0Z+yXiGQyOj+YvSOTv3ZQbxEBYrs4zmY4rrm4/opSN1Xv/oGONv5uCSqiYZy4g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script  src="{{asset('assets/js/main.js')}}"></script>
 
  <script>
@@ -122,6 +126,15 @@
            error.style.display="none";
        }
    },6200);
+
+   window.onload=function (){
+       let root = document.getElementById('root')
+       function clearCache() {
+           root.innerHTML += 'Cache cleared using location.reload(true)'
+           windows.location.reload(true)
+       }
+   }
+
 </script>
 
 </body>

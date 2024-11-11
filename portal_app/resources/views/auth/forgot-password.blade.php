@@ -13,15 +13,16 @@
     <link rel="stylesheet" href="{{asset('assets/css/login.css')}}">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
-
-
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
 </head>
 <body>
 <section class="gradient-custom">
     <div class="container py-2 h-100">
         <div class="row d-flex justify-content-center align-items-center h-100">
             <!--      col-12 col-md-8 col-lg-6-->
-            <div class="col-8 col-md-6 col-lg-4 col-xl-4 ">
+            <div class="col-md-6 col-lg-4 col-xl-4 ">
                 <div class="card bg-dark-alt text-white " style="border-radius: 1rem;">
                     <div class="card-body p-5 text-center">
 
